@@ -4,7 +4,7 @@ interface Todo {
 }
 
 export class App {
-  heading = "Todos";
+  heading = "Amazing Todos";
   todos: Todo[] = [];
   todoDescription = '';
 

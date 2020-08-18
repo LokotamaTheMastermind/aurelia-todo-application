@@ -1,18 +1,27 @@
 <template>
-  <h1>${heading}</h1>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <h1 class="display-4 text-center">${heading}</h1>
 
   <form submit.trigger="addTodo()">
-    <input type="text" value.bind="todoDescription">
-    <button type="submit" disabled.bind="!todoDescription">Add todo</button>
+    <br>
+    <input type="text" value.bind="todoDescription" class="form-control" style="margin-left: 35%; max-width: 30%;">
+    <br>
+    <button type="submit" disabled.bind="!todoDescription" class="btn btn-primary" style="margin-left: 35%; width: 30%;">Add todo</button>
   </form>
 
-  <ul>
+  <br>
+  <div class="card card-body">
     <li repeat.for="todo of todos">
       <input type="checkbox" checked.bind="todo.done">
       <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
         ${todo.description}
       </span>
-      <button click.trigger="removeTodo(todo)">Remove</button>
+      <button click.trigger="removeTodo(todo)" class="btn btn-danger">Remove</button>
+      <br>
+      <br>
     </li>
-  </ul>
+  </div>
 </template>
